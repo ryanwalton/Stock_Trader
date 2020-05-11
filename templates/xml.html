@@ -1,0 +1,47 @@
+{% extends "template.html" %}
+{% block body_content %}
+
+<script>
+    function ajax(num, id) {
+        var req = new XMLHttpRequest();
+        var chart_html = document.getElementById('chart');
+        console.log(req);
+
+        req.onreadystatechange = function() {
+            console.log("here");
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.response);
+                chart_html.innerHTML = this.responseText;
+
+                var arr = chart_html.getElementsByTagName('script')
+
+                console.log(arr);
+
+                for (var n = 0; n < arr.length; n++)
+                    eval(arr[n].innerHTML)
+                
+                chart_html.innerHTML += '<button type="button" onclick=\'ajax("1", "Day");\'>1 Day</button> <button type="button" onclick=\'ajax("5", "Day");\'>5 Days</button> <button type="button" onclick=\'ajax("1", "Month");\'>1 Month</button> <button type="button" onclick=\'ajax("6", "Month");\'>6 Months</button> <button type="button" onclick=\'ajax("1", "Year");\'>1 Year</button> <button type="button"  onclick=\'ajax("5", "Year");\'>5 Years</button>';
+            }
+
+            else {
+                console.log(this.status);
+                console.log(this.readyState);
+                chart_html.innerHTML = "If you are waiting too long you may have entered an invalid stock symbol";
+            }
+        }
+
+        req.open("POST", "/xml", true);
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        req.send("text-input=" + document.getElementById('text-input').value + "&id=" + id + "&num=" + num.toString());
+    }
+</script>
+
+<form action="xml" method="POST">
+    <br>
+    <input type="text" id="text-input" name="text-input">
+    <input type="button" id="ajax-button" value="Show Charts" onclick='ajax("5", "Day");'>
+    <br>
+    <div id="chart">Chart will appear here</div>
+</form>
+
+{% endblock body_content %}

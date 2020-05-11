@@ -1,0 +1,38 @@
+{% extends "template.html" %}
+{% set active_page = 'home' -%}
+{% block body_content %}
+    <section>
+      <div>
+      <h3>Welcome to the $tonk Market!</h3>
+      </div>
+      <div>
+        <p>Join and experience what the stock market has in store for you!
+        </p>
+      </div>
+      <div>
+        <p>Our WebApp provides a <b><i>0%</i></b> commision trading platform that
+          will help you Buy, Sell, and Manage your own stock portfolio using
+          real-time data.
+        </p>
+      </div>
+      <div>
+        <p>Join now for free!
+        </p>
+      </div>
+    </section>
+
+    <aside>
+      <b>Sign in here!</b>
+      <form action="./portfolio">
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password"><br><br>
+        <input type="submit" value="Sign In"><br>
+        <div>
+          Or sign up today!
+          <a href="./register">Click to Register Today</a>
+        </div>
+      </form>
+    </aside>
+{% endblock body_content %}

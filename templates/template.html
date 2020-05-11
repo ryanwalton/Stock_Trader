@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}">
+        <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+        <title>Stonks</title>
+    </head>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark" id="navbar">
+        <a class="navbar-brand" href="/">$tonk Market</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {% set navbar_items = [
+                    ('/', 'home', 'Home'),
+                    ('/portfolio', 'portfolio', 'Portfolio'),
+                    ('/buy', 'buy', 'Buy'),
+                    ('/sell', 'sell', 'Sell'),
+                    ('/quote', 'quote', 'Quote')
+                ] %}
+
+                {% set active_page = active_page|default('home') -%}
+
+                {% for href, id, text in navbar_items %}
+                <li class="nav-item">
+                    <a class="nav-link {% if id == active_page %} active {% endif %}" href="{{ href }}">{{ text }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link {% if "login" == active_page %} active {% endif %}" href="/login">Login / Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <body style="background-color: #F2F3F4;">
+        {% block body_content %}
+        {% endblock body_content %}
+    </body>
+
+    <footer>
+        <hr>
+        <a href="./home">Home</a>
+        <a href="./login">Login</a>
+        <a href="./register">Register</a>
+        <a href="./portfolio">Portfolio</a>
+        <a href="./buy">Buy</a>
+        <a href="./sell">Sell</a>
+      </footer>
+</html>

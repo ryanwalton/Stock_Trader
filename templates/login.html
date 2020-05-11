@@ -1,0 +1,18 @@
+{% extends "template.html" %}
+{% set active_page = 'login' -%}
+{% block body_content %}
+    <div>
+    <h3>Welcome Returning User!</h3>
+    </div>
+    <form>
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username"><br>
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password"><br>
+      <input type="submit"><br><br>
+      <div>
+        Or sign up today!
+        <a href="./register">Click Here To Register</a>
+      </div>
+    </form>
+{% endblock body_content %}

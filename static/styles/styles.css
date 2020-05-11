@@ -1,0 +1,45 @@
+/*navbar class*/
+.navbar {
+    background-color: #2e4279; 
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+    font-size: 20px;
+}
+
+/*button class*/
+.button {
+    position: relative;
+    background-color: #2e4279;
+    border: none;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* creates a ripple effect when button is pressed*/
+.button:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}

@@ -1,0 +1,9 @@
+{% extends "template.html" %}
+{% set active_page = 'quote' -%}
+{% block body_content %}
+<form action="/quote" method="POST">
+    <label for="quote-input">Enter stock symbol:</label> <br>
+    <input type="text" name="quote-input">
+    <input type="submit" value="Submit">
+</form>
+{% endblock body_content %}

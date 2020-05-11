@@ -1,0 +1,51 @@
+{% extends "template.html" %}
+{% set active_page = 'login' -%}
+{% block body_content %}
+<div>
+  <h3>Welcome New User!</h3>
+  </div>
+
+  <form action="/">
+    <div class = "row">
+      <div class = "col-sm-5">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username"><br>
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname"><br>
+        <label for="lname">Last Name:</label><br>
+        <input type="text" id="lname"><br>
+        <label for="gender">Gender:</label><br>
+        <input type="radio" id="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other">
+        <label for="other">Other</label><br>
+        <label for="bday">Enter Your Birthdate:</label>
+        <input type="date" id="bday" min="1920-4-20" max="2020-4-20"><br><br>
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email"><br>
+        <label for="email">Confirm Email Address:</label><br>
+        <input type="email" id="email"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password"><br>
+        <label for="password">Confirm password:</label><br>
+        <input type="password" id="password"><br><br>
+      </div>
+
+      <div class = "col-sm-5">
+        <label for="address1">Address Line 1:</label><br>
+        <input type="text" id="address1"><br>
+        <label for="address2">Address Line 2:</label><br>
+        <input type="text" id="address2"><br>
+        <label for="city">City:</label><br>
+        <input type="text" id="city"><br>
+        <label for="state">State:</label><br>
+        <input type="text" id="state"><br>
+        <label for="zip">Zip Code:</label><br>
+        <input type="number" id="zip" min="1" max="5"><br><br>
+        <input type="submit" value="Sign Up">
+      </div>
+    </div>
+  </form>
+{% endblock body_content %}

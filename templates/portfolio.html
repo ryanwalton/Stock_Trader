@@ -1,0 +1,33 @@
+{% extends "template.html" %}
+{% set active_page = 'portfolio' -%}
+{% block body_content %}
+<body>
+  <table class="table table-striped table-bordered table-hover table-responsive table-sm">
+    <thead class="thead-light">
+      <tr align="center">
+        <th scope="col">Stock</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total</th>
+      </tr>
+  </thead>
+    {% for symbol, quantity, price, stock_total in data %}
+      <tr align="center">
+        <td>{{symbol}}</td>
+        <td>{{quantity}}</td>
+        <td>{{price}}</td>
+        <td>{{stock_total}}</td>
+      </tr>
+    {% endfor %}
+    <tr align="center">
+      <td colspan="3">Your available cash:</td>
+      <td>{{user_cash}}</td>
+    </tr>
+    <tr align="center">
+      <td colspan="3">Grand Total:</td>
+      <td>{{final_total}}</td>
+    </tr>
+    </tr>
+  </table>
+</body>
+{% endblock body_content %}
